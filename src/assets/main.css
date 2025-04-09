@@ -1,0 +1,21 @@
+@import './base.css';
+
+#app {
+  position: relative;
+  max-width: 390px;
+  margin: 0 auto;
+  height: 100vh;
+  font-weight: normal;
+  background: var(--color-background);
+}
+
+h1 {
+  font-size: var(--text-xl);
+}
+button {
+  background: var(--color-green);
+  color: #fff;
+  font-size: var(--text-sm);
+  width: 55vw;
+  height: 44px;
+}

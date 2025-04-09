@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green: #55847a;
+  --color-background: #EDEDED;
+}
+
+body {
+  font-size: var(--text-xs);
+}
