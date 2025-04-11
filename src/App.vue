@@ -1,18 +1,9 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import Header from '@/components/Header.vue'
 </script>
 
 <template>
-  <header>
-    <img src="@/assets/images/header-circle.png" alt="header bg" class="header-bg" />
-  </header>
+  <Header />
   <RouterView />
 </template>
-
-<style scoped>
-.header-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-</style>

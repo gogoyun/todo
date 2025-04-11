@@ -13,7 +13,7 @@
 		deleniti nihil dolorem repellendus.</p>
 	</div>
 	<div class="bottom text-center">
-		<button class="mb-[21px]">Get Started</button>
+		<button class="green mb-[21px]">Get Started</button>
 	</div>
 </template>
 <style scoped>

@@ -13,6 +13,9 @@ h1 {
   font-size: var(--text-xl);
 }
 button {
+  color: #55847A;
+}
+button.green {
   background: var(--color-green);
   color: #fff;
   font-size: var(--text-sm);
