@@ -13,6 +13,10 @@ h1 {
   font-size: var(--text-xl);
 }
 
+input::placeholder {
+  color: rgba(0, 0, 0, 0.74); /* Tailwind CSS 的 gray-500 */
+}
+
 .btn {
   text-decoration-line: none;
 }
