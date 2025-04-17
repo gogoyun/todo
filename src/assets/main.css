@@ -1,6 +1,8 @@
 @import './base.css';
 
 #app {
+  display: flex;
+  flex-direction: column;
   position: relative;
   max-width: 390px;
   margin: 0 auto;

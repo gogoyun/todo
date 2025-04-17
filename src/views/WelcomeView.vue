@@ -3,7 +3,7 @@ import Welcome from '../components/Welcome.vue'
 </script>
 
 <template>
-  <main class="h-[100vh] flex flex-col justify-between content-center">
+  <main class="flex flex-1 flex-col justify-between content-center p-6">
     <Welcome />
   </main>
 </template>
