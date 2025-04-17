@@ -7,9 +7,9 @@
 		<button class="btn btn-ghost p-0"><BackArrowIcon /></button>
 	</div>
 	<div class="flex flex-col justify-center content-center text-center">
-		<h1 class="text-xl mb-6">Welcome Onboard!</h1>
-		<p class="text-sm/6 text-primary">Let’s help you meet up your task</p>
-		<fieldset class="fieldset flex flex-col grow gap-6 mt-15 mb-5">
+		<h1 class="text-xl">Welcome Onboard!</h1>
+		<p class="text-sm/6 text-primary pt-5 pb-10">Let’s help you meet up your task</p>
+		<fieldset class="fieldset flex flex-col grow gap-6 mt-5 mb-5">
 			<input type="text" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Enter your Full Name">
 			<input type="email" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Enter your Email address">
 			<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Create a Password">
