@@ -6,7 +6,7 @@
     <li class="flex items-center gap-3" v-for="(item, index) in 6">
       <div class="relative">
         <input type="checkbox" :id="`todo-${index}`" class="checkbox hidden invisible" />
-        <label class="check relative cursor-pointer inline-block top-px size-[17px] border-[2px] border-solid border-black"></label>
+        <label :for="`todo-${index}`" class="check relative cursor-pointer inline-block top-px size-[17px] border-[2px] border-solid border-black"></label>
       </div>
       <label :for="`todo-${index}`" class="flex-1 cursor-pointer inline-block">Follow Oluwafisayomi.dev on Twitter.</label>
     </li>
@@ -19,10 +19,6 @@ label {
 input[type="checkbox"]:checked ~ .check {
 	background: var(--color-primary);
 	animation: jelly 0.6s ease;
-}
-input[type="checkbox"]:checked ~ .check:after {
-	opacity: 1;
-	transform: rotate(45deg) scale(1);
 }
 @-moz-keyframes jelly {
     from {
