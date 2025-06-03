@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ToastMessage from '@/components/common/ToastMessage.vue';
 import { computed } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
@@ -18,4 +19,6 @@ const backgroundStyle = computed(() => {
     <Header />
     <RouterView />
   </div>
+  <!-- 提示訊息 -->
+  <ToastMessage />
 </template>
