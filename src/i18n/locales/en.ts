@@ -16,15 +16,19 @@ export default {
     },
     email: {
       required: 'Email is required',
-      error: 'Please enter a valid email address'
+      error: 'Please enter a valid email address',
+      already: 'Email already registered',
     },
     password: {
       required: 'Password is required',
-      min: 'Password must be at least 8 characters'
+      "min": "Password must be at least 6 characters",
+      "max": "Password cannot exceed 8 characters"
     },
     passwordConfirm: {
       required: 'Please confirm your password',
       error: 'Passwords must match'
-    }
+    },
+    success: 'Registration successful!',
+    error: 'Registration failed. Please contact the vendor.'
   }
 } 

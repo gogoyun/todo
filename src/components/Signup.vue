@@ -3,11 +3,15 @@ import { useForm } from 'vee-validate'
 import * as yup from 'yup'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
-
+import { postRegister } from '@/services/axios'
+import { useRouter } from 'vue-router'
+const router = useRouter();
+import { useToastStore } from '@/stores';
+const storeToast = useToastStore();
 const schema = yup.object({
 	nickname: yup.string().required(t('validate.name.required')),
 	email: yup.string().email(t('validate.email.error')).required(t('validate.email.required')),
-	password: yup.string().required(t('validate.password.required')),
+	password: yup.string().required(t('validate.password.required')).min(6, t('validate.password.min')).max(8, t('validate.password.max')),
 	passwordConfirm: yup.string().oneOf([yup.ref('password')], t('validate.passwordConfirm.error')).required(t('validate.passwordConfirm.required'))
 })
 
@@ -24,9 +28,39 @@ const [nickname] = defineField('nickname');
 const [email] = defineField('email');
 const [password] = defineField('password');
 const [passwordConfirm] = defineField('passwordConfirm');
-
-const formSubmit = handleSubmit((values) => {
-	console.log("submit", values);
+const formSubmit = handleSubmit(async(values) => {
+	await postRegister({
+		email: values.email,
+		password: values.password,
+		name: values.nickname,
+	}).then(res => {
+		switch (res.status) {
+			case 200:
+				storeToast.toastData = {
+					status: true,
+					type: 'success',
+					message: t('validate.success'),
+					ms: 3000
+				};
+				router.replace('/');
+				break;
+			case 400:
+				storeToast.toastData = {
+					status: true,
+					type: 'warning',
+					message: t('validate.email.already'),
+					ms: 3000
+				};
+				break;
+			default:
+				storeToast.toastData = {
+					status: true,
+					type: 'error',
+					message: t('validate.email.error'),
+					ms: 3000
+				};
+		}
+	});
 },(errors) => {
 	console.log("errors", errors);
 })
@@ -47,11 +81,11 @@ const formSubmit = handleSubmit((values) => {
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.email }}</div>
 					</div>
 					<div>
-						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Create a Password" v-model="password" name="password" minlength="6" maxlength="8">
+						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Create a Password" v-model="password" name="password">
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.password }}</div>
 					</div>
 					<div>
-						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Confirm your Password" v-model="passwordConfirm" name="passwordConfirm" minlength="6" maxlength="8">
+						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Confirm your Password" v-model="passwordConfirm" name="passwordConfirm">
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.passwordConfirm }}</div>
 					</div>
 				</fieldset>

@@ -16,15 +16,19 @@ export default {
     },
     email: {
       required: '請輸入電子郵件',
-      error: '請輸入有效的電子郵件地址'
+      error: '請輸入有效的電子郵件地址',
+      already: 'Email已被註冊，請輸入其他Email',
     },
     password: {
       required: '請輸入密碼',
-      min: '密碼至少需要 8 個字元'
+      min: '密碼至少需要 6 個字元',
+      max: '密碼最多 8 個字元'
     },
     passwordConfirm: {
       required: '請確認密碼',
       error: '密碼必須相符'
-    }
+    },
+    success: '註冊成功',
+    error: '註冊失敗請聯繫廠商'
   }
 } 
