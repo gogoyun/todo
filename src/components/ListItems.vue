@@ -1,14 +1,15 @@
 <script setup lang="ts">
+const props = defineProps(['listData']);
 </script>
 
 <template>
 	<ul class="h-full overflow-y-auto flex flex-col gap-4">
-    <li class="flex items-center gap-3" v-for="(item, index) in 6">
+    <li class="flex items-center gap-3" v-for="(item, index) in props.listData">
       <div class="relative">
-        <input type="checkbox" :id="`todo-${index}`" class="checkbox hidden invisible" />
+        <input type="checkbox" :id="`todo-${item.id}`" class="checkbox hidden invisible" />
         <label :for="`todo-${index}`" class="check relative cursor-pointer inline-block top-px size-[17px] border-[2px] border-solid border-black"></label>
       </div>
-      <label :for="`todo-${index}`" class="flex-1 cursor-pointer inline-block">Follow Oluwafisayomi.dev on Twitter.</label>
+      <label :for="`todo-${item.id}`" class="flex-1 cursor-pointer inline-block">{{ item.title }}</label>
     </li>
   </ul>
 </template>

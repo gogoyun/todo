@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { useUserStore } from '@/stores';
+const storeUser = useUserStore();
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 
@@ -25,9 +27,9 @@ const axiosInstanceAuth = axios.create({
   baseURL: baseURL,
   timeout: 5000,
 });
-axiosInstanceAuth.interceptors.request.use( 
-  async(config) => {
+axiosInstanceAuth.interceptors.request.use(function (config) {
     // Do something before request is sent
+    config.headers.Authorization = `Bearer ${storeUser.userData.token}`;
     return config;
   }, function (error) {
     // Do something with request error
@@ -46,5 +48,8 @@ const postRegister = (data: JSON) => axiosInstance.post('/register', data);
 // 登入
 const postLogin = (data: JSON) => axiosInstance.post('/login', data);
 
+//列表
+const getTodos = () => axiosInstanceAuth.get('/todos');
 
-export { postRegister, postLogin };
+
+export { postRegister, postLogin, getTodos };
