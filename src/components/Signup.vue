@@ -3,11 +3,12 @@ import { useForm } from 'vee-validate'
 import * as yup from 'yup'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
-import { postRegister } from '@/services/axios'
+import { postRegister, postLogin } from '@/services/axios'
 import { useRouter } from 'vue-router'
 const router = useRouter();
-import { useToastStore } from '@/stores';
+import { useToastStore, useUserStore } from '@/stores';
 const storeToast = useToastStore();
+const storeUser = useUserStore();
 const schema = yup.object({
 	nickname: yup.string().required(t('validate.name.required')),
 	email: yup.string().email(t('validate.email.error')).required(t('validate.email.required')),
@@ -33,16 +34,28 @@ const formSubmit = handleSubmit(async(values) => {
 		email: values.email,
 		password: values.password,
 		name: values.nickname,
-	}).then(res => {
+	}).then(async(res) => {
 		switch (res.status) {
 			case 200:
-				storeToast.toastData = {
-					status: true,
-					type: 'success',
-					message: t('validate.success'),
-					ms: 3000
-				};
-				router.replace('/');
+				//取得token
+				await postLogin({
+					email: values.email,
+					password: values.password,
+				}).then(res => {
+					//儲存token
+					storeUser.userData = {
+						email: values.email,
+						name: values.nickname,
+						token: res.data.data.access_token,
+					};
+					storeToast.toastData = {
+						status: true,
+						type: 'success',
+						message: t('validate.success'),
+						ms: 3000
+					};
+					router.replace('/');
+				})
 				break;
 			case 400:
 				storeToast.toastData = {

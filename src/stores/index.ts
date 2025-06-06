@@ -13,5 +13,18 @@ const useToastStore = defineStore('toast', {
   }),
 })
 
+interface userData {
+  email: string,
+  name: string,
+  token: string,
+}
 
-export { useToastStore };
+const useUserStore = defineStore('user', {
+  state: () => ({
+    userData: {} as userData
+  }),
+  persist: true, // 啟用persisted state, 這行配置使得 state 自動持久化儲存
+});
+
+
+export { useToastStore, useUserStore };

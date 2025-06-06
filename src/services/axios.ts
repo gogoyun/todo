@@ -43,6 +43,8 @@ axiosInstanceAuth.interceptors.response.use(function (response) {
 
 // 註冊
 const postRegister = (data: JSON) => axiosInstance.post('/register', data);
+// 登入
+const postLogin = (data: JSON) => axiosInstance.post('/login', data);
 
 
-export { postRegister };
+export { postRegister, postLogin };
