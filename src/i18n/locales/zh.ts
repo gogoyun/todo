@@ -28,7 +28,10 @@ export default {
       required: '請確認密碼',
       error: '密碼必須相符'
     },
-    success: '註冊成功',
+    success: {
+      signup: '註冊成功',
+      signin: '登入成功',
+    },
     error: '註冊失敗請聯繫廠商'
   }
 } 

@@ -28,7 +28,10 @@ export default {
       required: 'Please confirm your password',
       error: 'Passwords must match'
     },
-    success: 'Registration successful!',
+    success: {
+      signup: 'Registration successful!',
+      signin: 'Login successful',
+    },
     error: 'Registration failed. Please contact the vendor.'
   }
 } 

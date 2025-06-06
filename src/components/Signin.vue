@@ -38,7 +38,7 @@ const formSubmit = handleSubmit(async(values) => {
 		storeToast.toastData = {
 			status: true,
 			type: 'success',
-			message: '登入成功',
+			message: t('validate.success.signin'),
 			ms: 3000
 		};
 		router.replace('/');

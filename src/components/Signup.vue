@@ -51,7 +51,7 @@ const formSubmit = handleSubmit(async(values) => {
 					storeToast.toastData = {
 						status: true,
 						type: 'success',
-						message: t('validate.success'),
+						message: t('validate.success.signup'),
 						ms: 3000
 					};
 					router.replace('/');
