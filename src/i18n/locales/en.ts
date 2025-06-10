@@ -32,6 +32,7 @@ export default {
       signup: 'Registration successful!',
       signin: 'Login successful',
     },
-    error: 'Registration failed. Please contact the vendor.'
+    error: 'Registration failed. Please contact the vendor.',
+    titleRequired: 'Please enter at least one title.',
   }
 } 
