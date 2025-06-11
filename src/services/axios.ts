@@ -48,8 +48,10 @@ const postRegister = (data: JSON) => axiosInstance.post('/register', data);
 // 登入
 const postLogin = (data: JSON) => axiosInstance.post('/login', data);
 
-//列表
+// 列表
 const getTodos = () => axiosInstanceAuth.get('/todos');
+// 新增Todo
+const postTodos = data => axiosInstanceAuth.post('/todos', data);
 
 
-export { postRegister, postLogin, getTodos };
+export { postRegister, postLogin, getTodos, postTodos };

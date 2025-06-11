@@ -3,6 +3,9 @@ import { useForm, Field } from 'vee-validate'
 import * as yup from 'yup'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
+import { postTodos } from '@/services/axios'
+import { useToastStore } from '@/stores'
+const storeToast = useToastStore()
 const schema = yup.object({
 	titles: yup.array()
 		.of(
@@ -23,11 +26,22 @@ const schema = yup.object({
 			}
 		),
 });
-const { handleSubmit, errors } = useForm({
+const { handleSubmit, errors, resetForm } = useForm({
 	validationSchema: schema,
 })
 const formSubmit = handleSubmit(async(values) => {
-	console.log(values);
+	const addData = values.titles.filter(item => item && item.title && item.title.trim() !== '');
+	await postTodos(addData).then(res => {
+		if(res.status == 200) {
+			storeToast.toastData = {
+				status: true,
+				type: 'success',
+				message: t('validate.success.add'),
+				ms: 3000
+			};
+			resetForm();
+		}
+	})
 },(errors) => {
 	console.log("errors", errors);
 })

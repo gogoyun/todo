@@ -31,6 +31,7 @@ export default {
     success: {
       signup: '註冊成功',
       signin: '登入成功',
+      add: '新增成功',
     },
     error: '註冊失敗請聯繫廠商',
     titleRequired: '至少需要填寫一個標題',
