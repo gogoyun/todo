@@ -1,12 +1,20 @@
 <script setup lang="ts">
+import { patchStatus } from '@/services/axios'
 const props = defineProps(['listData']);
+const todoAdd = async(id:number, status: number) => {
+  let newStatus = 0;
+  if (!status) newStatus = 1;
+  await patchStatus(id ,{status: newStatus}).then( res =>{
+    console.log(res);
+  })
+}
 </script>
 
 <template>
 	<ul class="h-full overflow-y-auto flex flex-col gap-4">
     <li class="flex items-center gap-3" v-for="(item, index) in props.listData">
-      <div class="relative">
-        <input type="checkbox" :id="`todo-${item.id}`" class="checkbox hidden invisible" />
+      <div class="relative" @click="todoAdd(item.id, item.status)">
+        <input type="checkbox" :id="`todo-${item.id}`" class="checkbox hidden invisible" :checked="item.status" />
         <label :for="`todo-${index}`" class="check relative cursor-pointer inline-block top-px size-[17px] border-[2px] border-solid border-black"></label>
       </div>
       <label :for="`todo-${item.id}`" class="flex-1 cursor-pointer inline-block">{{ item.title }}</label>

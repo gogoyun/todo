@@ -51,7 +51,9 @@ const postLogin = (data: JSON) => axiosInstance.post('/login', data);
 // 列表
 const getTodos = () => axiosInstanceAuth.get('/todos');
 // 新增Todo
-const postTodos = data => axiosInstanceAuth.post('/todos', data);
+const postTodos = (data: JSON) => axiosInstanceAuth.post('/todos', data);
+// 修改Todo
+const patchStatus = (id: number, data: JSON) => axiosInstanceAuth.patch('/todos/'+id+'/status', data);
 
 
-export { postRegister, postLogin, getTodos, postTodos };
+export { postRegister, postLogin, getTodos, postTodos, patchStatus };
