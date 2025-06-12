@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import AddIcon from '@/components/icons/AddIcon.vue'
+import EditIcon from '@/components/icons/EditIcon.vue'
 import ListItems from './ListItems.vue';
 import { getTodos } from '@/services/axios';
 import { useUserStore } from '@/stores';
@@ -30,7 +31,10 @@ onMounted(async()=> {
 		<div class="flex flex-col bg-base-100 rounded-3xl shadow-md px-[31px]  pt-2 pb-6 text-[13px] h-full max-h-[240px]">
 			<div class="flex justify-between items-center mb-2">
 				<div class="font-medium opacity-34">Dairy  Tasks.</div>
-				<button class="btn btn-ghost p-1" @click="router.push('/add')"><AddIcon /></button>
+				<div>
+					<button class="btn btn-ghost p-1 px-2"><EditIcon /></button>
+					<button class="btn btn-ghost p-1" @click="router.push('/add')"><AddIcon /></button>
+				</div>
 			</div>
 			<ListItems :list-data="listData" v-if="listData.length" />
 		</div>
