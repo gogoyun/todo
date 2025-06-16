@@ -9,6 +9,10 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 const storeUser = useUserStore();
 const listData = ref([]);
+const editMode = ref(false);
+const changeEditMode = () => {
+	editMode.value = !editMode.value
+}
 onMounted(async()=> {
 	await getTodos().then(res=> {
 		listData.value = res.data.data;
@@ -32,11 +36,11 @@ onMounted(async()=> {
 			<div class="flex justify-between items-center mb-2">
 				<div class="font-medium opacity-34">Dairy  Tasks.</div>
 				<div>
-					<button class="btn btn-ghost p-1 px-2"><EditIcon /></button>
+					<button class="btn btn-ghost p-1 px-2" @click="changeEditMode()"><EditIcon /></button>
 					<button class="btn btn-ghost p-1" @click="router.push('/add')"><AddIcon /></button>
 				</div>
 			</div>
-			<ListItems :list-data="listData" v-if="listData.length" />
+			<ListItems :list-data="listData" :edit-mode="editMode" v-if="listData.length" />
 		</div>
 	</div>
 </template>

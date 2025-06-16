@@ -1,8 +1,14 @@
-<template>
-	<!--?xml version="1.0" encoding="utf-8"?-->
-	<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue'
+const whSize = ref(24)
+const props = defineProps(['size'])
+onMounted(()=>{
+	if (props.size) whSize.value = props.size;
+})
 
-	<svg version="1.1" id="_x31_0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 24px; height: 24px; opacity: 1;" xml:space="preserve">
+</script>
+<template>
+	<svg version="1.1" id="_x31_0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" :style="`width: ${whSize}px; height: ${whSize}px; opacity: 1;`" xml:space="preserve">
 	<g>
 		<path class="st0" d="M507.574,92.442l-88-88c-5.906-5.906-15.477-5.906-21.379,0L44.293,358.343L0.39,498.953
 			c-0.48,1.542-0.473,3.058-0.218,4.511c0,0.024,0,0.047,0.008,0.062c0.129,0.742,0.339,1.446,0.633,2.13
