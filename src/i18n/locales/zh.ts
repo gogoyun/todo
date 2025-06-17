@@ -32,6 +32,7 @@ export default {
     success: {
       signup: '註冊成功',
       signin: '登入成功',
+      signout: '登出成功',
       add: '新增成功',
     },
     error: {

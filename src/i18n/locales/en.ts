@@ -32,6 +32,7 @@ export default {
     success: {
       signup: 'Registration successful!',
       signin: 'Login successful',
+      signout: 'Logged out successful',
       add: 'Added successful',
     },
     error: {
