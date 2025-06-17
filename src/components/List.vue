@@ -4,18 +4,18 @@ import AddIcon from '@/components/icons/AddIcon.vue'
 import EditIcon from '@/components/icons/EditIcon.vue'
 import ListItems from './ListItems.vue';
 import { getTodos } from '@/services/axios';
-import { useUserStore } from '@/stores';
+import { useUserStore, useListStore } from '@/stores';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const storeUser = useUserStore();
-const listData = ref([]);
+const storeList = useListStore();
 const editMode = ref(false);
 const changeEditMode = () => {
 	editMode.value = !editMode.value
 }
 onMounted(async()=> {
 	await getTodos().then(res=> {
-		listData.value = res.data.data;
+		storeList.$state.listData = res.data.data;
 	})
 })
 </script>
@@ -40,7 +40,7 @@ onMounted(async()=> {
 					<button class="btn btn-ghost p-1" @click="router.push('/add')"><AddIcon /></button>
 				</div>
 			</div>
-			<ListItems :list-data="listData" :edit-mode="editMode" v-if="listData.length" />
+			<ListItems :edit-mode="editMode" v-if="storeList.$state.listData.length" />
 		</div>
 	</div>
 </template>

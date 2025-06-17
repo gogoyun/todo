@@ -28,6 +28,7 @@ export default {
       required: 'Please confirm your password',
       error: 'Passwords must match'
     },
+    confirm: 'Are you sure you want to delete this item?',
     success: {
       signup: 'Registration successful!',
       signin: 'Login successful',

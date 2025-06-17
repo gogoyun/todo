@@ -68,6 +68,8 @@ const postTodos = (data: JSON) => axiosInstanceAuth.post('/todos', data);
 const putTodos = (data: JSON) => axiosInstanceAuth.put('/todos', data);
 // 修改Todo狀態
 const patchStatus = (id: number, data: JSON) => axiosInstanceAuth.patch('/todos/'+id+'/status', data);
+// 刪除Todo
+const delTodos = (id: number) => axiosInstanceAuth.delete('/todos/'+id);
 
 
-export { postRegister, postLogin, getTodos, postTodos, putTodos, patchStatus };
+export { postRegister, postLogin, getTodos, postTodos, putTodos, patchStatus, delTodos };

@@ -28,6 +28,7 @@ export default {
       required: '請確認密碼',
       error: '密碼必須相符'
     },
+    confirm: '確定要刪除這個項目嗎？',
     success: {
       signup: '註冊成功',
       signin: '登入成功',
