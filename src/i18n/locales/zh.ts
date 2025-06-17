@@ -33,7 +33,10 @@ export default {
       signin: '登入成功',
       add: '新增成功',
     },
-    error: '註冊失敗請聯繫廠商',
+    error: {
+      signup: '註冊失敗請聯繫廠商',
+      timeout: '登入逾時請重新登入',
+    },
     titleRequired: '至少需要填寫一個標題',
   }
 } 

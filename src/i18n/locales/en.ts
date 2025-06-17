@@ -33,7 +33,10 @@ export default {
       signin: 'Login successful',
       add: 'Added successful',
     },
-    error: 'Registration failed. Please contact the vendor.',
+    error: {
+      signup: 'Registration failed. Please contact the vendor.',
+      timeout: 'Login expired. Please re-login.',
+    },
     titleRequired: 'Please enter at least one title.',
   }
 } 

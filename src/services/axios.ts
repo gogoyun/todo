@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { useUserStore } from '@/stores';
-const storeUser = useUserStore();
+import router from '@/router';
+import i18n from '@/i18n';
+import { useUserStore, useToastStore } from '@/stores';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 
@@ -29,6 +30,7 @@ const axiosInstanceAuth = axios.create({
 });
 axiosInstanceAuth.interceptors.request.use(function (config) {
     // Do something before request is sent
+    const storeUser = useUserStore();
     config.headers.Authorization = `Bearer ${storeUser.userData.token}`;
     return config;
   }, function (error) {
@@ -40,6 +42,16 @@ axiosInstanceAuth.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
   // Do something with response error
+  if (error.response?.status === 401) {
+    const storeToast = useToastStore();
+    storeToast.toastData = {
+      status: true,
+      type: 'info',
+      message: i18n.global.t('validate.error.timeout'),
+      ms: 3000
+    }
+    router.replace('/signin');
+  }
   return Promise.reject(error);
 });
 
