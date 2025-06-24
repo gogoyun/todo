@@ -1,4 +1,9 @@
 export default {
+  welcome: {
+    title: 'Get things done with TODo',
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing. Maxime, tempore! Animi nemo aut atque, deleniti nihil dolorem repellendus.`,
+    button: 'Get Started'
+  },
   signup: {
     welcome: 'Welcome Onboard!',
     subtitle: "Let's help you meet up your task",
@@ -9,6 +14,25 @@ export default {
     submitButton: 'Sign Up',
     haveAccount: 'Already have an account ?',
     signIn: 'Sign In'
+  },
+  signin: {
+    welcome: 'Welcome Back!',
+    emailPlaceholder: 'Enter your Email address',
+    passwordPlaceholder: 'Confirm your Password',
+    forgotPassword: 'Forgot Password ?',
+    submitButton: 'Sign In',
+    signUp: 'Sign Up',
+    haventAccount: 'Dont have an account ?'
+  },
+  list: {
+    welcome: 'Welcome',
+    title: 'Todo  Tasks.',
+    subtitle: 'Dairy  Tasks.',
+  },
+  add: {
+    title: 'Welcome Onboard!',
+    subtitle: 'Add What your want to do later on..',
+    submitButton: 'Add to list'
   },
   validate: {
     name: {
@@ -21,8 +45,8 @@ export default {
     },
     password: {
       required: 'Password is required',
-      "min": "Password must be at least 6 characters",
-      "max": "Password cannot exceed 8 characters"
+      min: "Password must be at least 6 characters",
+      max: "Password cannot exceed 8 characters"
     },
     passwordConfirm: {
       required: 'Please confirm your password',
@@ -37,7 +61,9 @@ export default {
     },
     error: {
       signup: 'Registration failed. Please contact the vendor.',
+      signin: 'Incorrect email or password. Please try again.',
       timeout: 'Login expired. Please re-login.',
+      apiFaild: 'Please contact the vendor.'
     },
     titleRequired: 'Please enter at least one title.',
   }

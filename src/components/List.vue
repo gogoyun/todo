@@ -3,9 +3,11 @@ import { ref, onMounted } from 'vue';
 import AddIcon from '@/components/icons/AddIcon.vue'
 import EditIcon from '@/components/icons/EditIcon.vue'
 import ListItems from './ListItems.vue';
+import { useI18n } from 'vue-i18n';
 import { getTodos } from '@/services/axios';
 import { useUserStore, useListStore } from '@/stores';
 import { useRouter } from 'vue-router';
+const { t } = useI18n();
 const router = useRouter();
 const storeUser = useUserStore();
 const storeList = useListStore();
@@ -27,14 +29,14 @@ onMounted(async()=> {
 				<img src="@/assets/images/avatar.jpg" class="object-cover w-full h-full" />
 			</div>
 		</div>
-		<h1 class="text-xl font-medium mt-4 mb-1">Welcome {{ storeUser.userData.name }}!</h1>
+		<h1 class="text-xl font-medium mt-4 mb-1">{{ t('list.welcome') }} {{ storeUser.userData.name }}!</h1>
 		<img src="@/assets/images/list_pic.png" class="inline-block mx-auto" alt="welcome back!">
 	</div>
 	<div class="flex flex-col flex-1">
-		<h2 class="text-xl mb-6">Todo  Tasks.</h2>
+		<h2 class="text-xl mb-6">{{ t('list.title') }}</h2>
 		<div class="flex flex-col bg-base-100 rounded-3xl shadow-md px-[31px]  pt-2 pb-6 text-[13px] h-full max-h-[240px]">
 			<div class="flex justify-between items-center mb-2">
-				<div class="font-medium opacity-34">Dairy  Tasks.</div>
+				<div class="font-medium opacity-34">{{ t('list.subtitle') }}</div>
 				<div>
 					<button class="btn btn-ghost p-1 px-2" @click="changeEditMode()"><EditIcon /></button>
 					<button class="btn btn-ghost p-1" @click="router.push('/add')"><AddIcon /></button>

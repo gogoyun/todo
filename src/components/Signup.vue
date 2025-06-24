@@ -82,32 +82,32 @@ const formSubmit = handleSubmit(async(values) => {
 <template>
 	<form @submit.prevent="formSubmit" class="flex flex-1 flex-col justify-between content-center">
 		<div class="flex flex-col justify-center content-center">
-			<h1 class="text-xl text-center mt-12 mb-6">Welcome Onboard!</h1>
-			<p class="text-sm/6 text-primary text-center pb-12">Let’s help you meet up your task</p>
+			<h1 class="text-xl text-center mt-12 mb-6">{{ t('signup.welcome') }}</h1>
+			<p class="text-sm/6 text-primary text-center pb-12">{{ t('signup.subtitle') }}</p>
 				<fieldset class="fieldset flex flex-col mt-3 mb-5">
 					<div>
-						<input type="text" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Enter your Full Name" v-model="nickname" name="nickname">
+						<input type="text" class="input w-full h-[47px] border-0 rounded-[11px]" :placeholder="t('signup.fullNamePlaceholder')" v-model="nickname" name="nickname">
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.nickname }}</div>
 					</div>
 					<div>
-						<input type="email" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Enter your Email address" v-model="email" name="email">
+						<input type="email" class="input w-full h-[47px] border-0 rounded-[11px]" :placeholder="t('signup.emailPlaceholder')" v-model="email" name="email">
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.email }}</div>
 					</div>
 					<div>
-						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Create a Password" v-model="password" name="password">
+						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" :placeholder="t('signup.passwordPlaceholder')" v-model="password" name="password">
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.password }}</div>
 					</div>
 					<div>
-						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" placeholder="Confirm your Password" v-model="passwordConfirm" name="passwordConfirm">
+						<input type="password" class="input w-full h-[47px] border-0 rounded-[11px]" :placeholder="t('signup.confirmPasswordPlaceholder')" v-model="passwordConfirm" name="passwordConfirm">
 						<div class="error-text mt-1 px-1 h-[18px]">{{ errors.passwordConfirm }}</div>
 					</div>
 				</fieldset>
 		</div>
 		<div class="bottom text-center">
-			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">Sign Up</button>
+			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('signup.submitButton') }}</button>
 			<div class="flex justify-center items-center text-[15px]">
-				<p class="opacity-62">Already have an account ?</p>
-				<button type="button" class="btn btn-link opacity-100">Sign In</button>
+				<p class="opacity-62">{{ t('signup.haveAccount') }}</p>
+				<button type="button" class="btn btn-link opacity-100">{{ t('signup.signIn') }}</button>
 			</div>
 		</div>
 	</form>
