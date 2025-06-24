@@ -6,11 +6,13 @@
 </script>
 
 <template>
-	<div class="text-center">
-		<img src="@/assets/images/home_main_image.png" class="inline-block mx-auto mt-20 mb-20" alt="Get things done with TODo">
-		<h1 class="text-xl mb-8">{{ t('welcome.title') }}</h1>
-		<div class="mx-12">
-			<p class="text-sm/5">{{ t('welcome.description') }}</p>
+	<div class="flex flex-1 flex-col justify-between py-20 text-center">
+		<img src="@/assets/images/home_main_image.png" class="inline-block mx-auto" alt="Get things done with TODo">
+		<div>
+			<h1 class="text-xl mb-8">{{ t('welcome.title') }}</h1>
+			<div class="mx-12">
+				<p class="text-sm/5">{{ t('welcome.description') }}</p>
+			</div>
 		</div>
 	</div>
 	<div class="bottom text-center">
