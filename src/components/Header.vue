@@ -16,7 +16,9 @@
     }
   })
   const positionSignout = computed(() => {
-    if (route.name === 'list') {
+    if(route.name === 'signin' || route.name === 'signup') {
+      return 'hidden';
+    }else if (route.name === 'list') {
       return 'top-6';
     }else{
       return 'top-16';
