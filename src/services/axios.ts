@@ -45,6 +45,9 @@ axiosInstanceAuth.interceptors.response.use(function (response) {
   // Do something with response error
   if (error.response?.status === 401) {
     const storeToast = useToastStore();
+    const storeUser = useUserStore();
+    storeUser.$state.userData = [];
+    storeUser.preLoginPath = null;
     storeToast.toastData = {
       status: true,
       type: 'info',

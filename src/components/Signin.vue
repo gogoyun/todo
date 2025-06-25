@@ -42,7 +42,11 @@ const formSubmit = handleSubmit(async(values) => {
 				message: t('validate.success.signin'),
 				ms: 3000
 			};
-			router.replace('/');
+			if (storeUser.preLoginPath) {
+				router.replace(storeUser.preLoginPath);
+			} else {
+				router.replace('/');
+			}
 		}
 	}).catch(error => {
 		switch (error.status) {

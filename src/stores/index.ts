@@ -21,7 +21,8 @@ interface userData {
 
 const useUserStore = defineStore('user', {
   state: () => ({
-    userData: [] as userData[]
+    userData: [] as userData[],
+    preLoginPath: null as string | null,
   }),
   persist: true, // 啟用persisted state, 這行配置使得 state 自動持久化儲存
 });

@@ -26,6 +26,7 @@
   })
   const signOut = () => {
     storeUser.$state.userData = [];
+    storeUser.preLoginPath = null;
     storeToast.$state.toastData = {
       status: true,
       type: 'success',

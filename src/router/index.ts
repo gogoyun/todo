@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import WelcomeView from '../views/WelcomeView.vue'
+import { useUserStore } from '@/stores';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +31,23 @@ const router = createRouter({
       component: () => import('../views/AddView.vue'),
     },
   ],
+})
+
+function isUserEmpty() {
+  const storeUser = useUserStore();
+  const userData = storeUser.$state.userData;
+  return (
+    !userData ||
+    (typeof userData === 'object' && Object.keys(userData).length === 0)
+  )
+}
+
+router.beforeEach((to, from) => {
+  const storeUser = useUserStore();
+  if ( isUserEmpty() && to.name !== 'signin' && to.name !== 'signup') {
+    storeUser.preLoginPath = to.fullPath;
+    return { name: 'signin' }
+  }
 })
 
 export default router
