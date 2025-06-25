@@ -34,6 +34,11 @@ export default {
     subtitle: '新增待會想做的事...',
     submitButton: '新增到To-Do',
   },
+  notfound: {
+    title: '找不到頁面',
+    subtitle: '抱歉，我們找不到您要前往的頁面',
+    submitButton: '回到列表頁'
+  },
   validate: {
     name: {
       required: '請輸入全名'

@@ -34,6 +34,11 @@ export default {
     subtitle: 'Add What your want to do later on..',
     submitButton: 'Add to list'
   },
+  notfound: {
+    title: 'Page not found',
+    subtitle: 'Sorry, we couldn’t find the page you’re looking for.',
+    submitButton: 'Go back home'
+  },
   validate: {
     name: {
       required: 'Full name is required'
