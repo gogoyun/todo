@@ -19,9 +19,10 @@ axiosInstance.interceptors.request.use(function (config) {
 });
 axiosInstance.interceptors.response.use(function (response) {
   // Do something with response data
+  //console.log('API response from:', response.config.url);
   return response;
 }, function (error) {
-  console.log(error);
+  return Promise.reject(error);
 });
 // 有token的請求
 const axiosInstanceAuth = axios.create({

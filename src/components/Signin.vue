@@ -44,6 +44,24 @@ const formSubmit = handleSubmit(async(values) => {
 			};
 			router.replace('/');
 		}
+	}).catch(error => {
+		switch (error.status) {
+			case 400:
+				storeToast.toastData = {
+					status: true,
+					type: 'warning',
+					message: t('validate.error.signin'),
+					ms: 3000
+				};
+				break;
+			default:
+				storeToast.toastData = {
+					status: true,
+					type: 'error',
+					message: t('validate.error.apiFaild'),
+					ms: 3000
+				};
+		}
 	});
 },(errors) => {
 	console.log("errors", errors);

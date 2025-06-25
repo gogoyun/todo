@@ -35,28 +35,39 @@ const formSubmit = handleSubmit(async(values) => {
 		password: values.password,
 		name: values.nickname,
 	}).then(async(res) => {
-		switch (res.status) {
-			case 200:
-				//取得token
-				await postLogin({
+		console.log('res', res);
+		if (res?.data.code === 200) {
+			//取得token
+			try {
+				const loginRes = await postLogin({
 					email: values.email,
 					password: values.password,
-				}).then(res => {
-					//儲存token
-					storeUser.userData = {
-						email: values.email,
-						name: values.nickname,
-						token: res.data.data.access_token,
-					};
-					storeToast.toastData = {
-						status: true,
-						type: 'success',
-						message: t('validate.success.signup'),
-						ms: 3000
-					};
-					router.replace('/');
-				})
-				break;
+				});
+				//儲存token
+				storeUser.userData = {
+					email: values.email,
+					name: values.nickname,
+					token: loginRes.data.data.access_token,
+				};
+				storeToast.toastData = {
+					status: true,
+					type: 'success',
+					message: t('validate.success.signup'),
+					ms: 3000
+				};
+				router.replace('/');
+			} catch (loginError) {
+				console.log('login error', loginError);
+				storeToast.toastData = {
+					status: true,
+					type: 'error',
+					message: t('validate.login.error'),
+					ms: 3000
+				};
+			}
+		}
+	}).catch(error => {
+		switch (error.status) {
 			case 400:
 				storeToast.toastData = {
 					status: true,
