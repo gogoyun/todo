@@ -24,6 +24,12 @@ export default {
     signUp: '立即註冊',
     dontHaveAnAcc: '還沒有帳號 ?'
   },
+  forgot: {
+    title: '重設您的密碼',
+    submitButton: '重設您的密碼',
+    signUp: '立即註冊',
+    haventAccount: '還沒有帳號 ?'
+  },
   list: {
     welcome: '歡迎',
     title: '待辦事項',
@@ -62,6 +68,7 @@ export default {
       signup: '註冊成功',
       signin: '登入成功',
       signout: '登出成功',
+      sendEmail: '密碼重設信已寄出',
       add: '新增成功',
     },
     error: {

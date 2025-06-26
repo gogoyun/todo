@@ -24,6 +24,13 @@ export default {
     signUp: 'Sign Up',
     haventAccount: 'Dont have an account ?'
   },
+  forgot: {
+    title: 'Reset your password',
+    emailPlaceholder: 'Enter your Email address',
+    submitButton: 'Reset your password',
+    signUp: 'Sign Up',
+    haventAccount: 'Dont have an account ?'
+  },
   list: {
     welcome: 'Welcome',
     title: 'Todo  Tasks.',
@@ -62,6 +69,7 @@ export default {
       signup: 'Registration successful!',
       signin: 'Login successful',
       signout: 'Logged out successful',
+      sendEmail: 'send successful',
       add: 'Added successful',
     },
     error: {

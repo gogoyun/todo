@@ -87,7 +87,7 @@ const formSubmit = handleSubmit(async(values) => {
 					<div class="error-text mt-1 px-1 h-[18px]">{{ errors.password }}</div>
 				</div>
 			</fieldset>
-			<button class="btn btn-link font-normal">{{ t('signin.forgotPassword') }}</button>
+			<button type="button" class="btn btn-link font-normal" @click="router.push('/forgotpassword')">{{ t('signin.forgotPassword') }}</button>
 		</div>
 		<div class="bottom text-center">
 			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('signin.submitButton') }}</button>

@@ -63,6 +63,8 @@ axiosInstanceAuth.interceptors.response.use(function (response) {
 const postRegister = (data: JSON) => axiosInstance.post('/register', data);
 // 登入
 const postLogin = (data: JSON) => axiosInstance.post('/login', data);
+// 忘記密碼
+const postForgot = (data:JSON) => axiosInstance.post('/forgot-password', data);
 
 // 列表
 const getTodos = () => axiosInstanceAuth.get('/todos');
@@ -76,4 +78,4 @@ const patchStatus = (id: number, data: JSON) => axiosInstanceAuth.patch('/todos/
 const delTodos = (id: number) => axiosInstanceAuth.delete('/todos/'+id);
 
 
-export { postRegister, postLogin, getTodos, postTodos, putTodos, patchStatus, delTodos };
+export { postRegister, postLogin, postForgot, getTodos, postTodos, putTodos, patchStatus, delTodos };
