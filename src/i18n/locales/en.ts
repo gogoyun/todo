@@ -31,6 +31,11 @@ export default {
     signUp: 'Sign Up',
     haventAccount: 'Dont have an account ?'
   },
+  resetsuccess: {
+    title: 'Successful',
+    subtitle: 'Password reset successful! You can now re-login with your new password.',
+    submitButton: 'Go to Login',
+  },
   list: {
     welcome: 'Welcome',
     title: 'Todo  Tasks.',

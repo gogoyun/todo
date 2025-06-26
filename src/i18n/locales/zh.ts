@@ -30,6 +30,11 @@ export default {
     signUp: '立即註冊',
     haventAccount: '還沒有帳號 ?'
   },
+  resetsuccess: {
+    title: '重設成功',
+    subtitle: '密碼重設成功，您可以使用新密碼重新登入',
+    submitButton: '前往登入',
+  },
   list: {
     welcome: '歡迎',
     title: '待辦事項',
