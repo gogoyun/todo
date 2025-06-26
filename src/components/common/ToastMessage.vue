@@ -27,7 +27,7 @@ watch(() => storeToast.toastData.status, (newStatus) => {
 </script>
 <template>
 	<div class="toast toast-center toast-middle animate-once" :class="showAnimation">
-		<div role="alert" class="alert" :class="`alert-${storeToast.toastData.type}`">
+		<div role="alert" class="alert" :class="{ [`alert-${storeToast.toastData.type}`]: storeToast.toastData.type }">
 			<SuccessIcon v-if="storeToast.toastData.type == 'success'" />
 			<InfoIcon v-if="storeToast.toastData.type == 'info'" />
 			<WarningIcon v-if="storeToast.toastData.type == 'warning'" />
