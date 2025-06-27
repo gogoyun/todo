@@ -3,7 +3,7 @@ import ForgotPassword from '../components/ForgotPassword.vue'
 </script>
 
 <template>
-  <main class="flex flex-1 flex-col justify-between content-center p-6">
+  <main class="flex-1 flex items-center p-6">
     <ForgotPassword />
   </main>
 </template>

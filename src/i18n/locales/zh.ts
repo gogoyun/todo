@@ -22,10 +22,12 @@ export default {
     forgotPassword: '忘記密碼 ?',
     submitButton: '登入',
     signUp: '立即註冊',
-    dontHaveAnAcc: '還沒有帳號 ?'
+    haventAccount: '還沒有帳號 ?'
   },
   forgot: {
     title: '重設您的密碼',
+    subtitle: '請輸入您的電子郵件地址，我們將會寄送密碼重設連結給您。',
+    emailPlaceholder: '請輸入您的電子郵件',
     submitButton: '重設您的密碼',
     signUp: '立即註冊',
     haventAccount: '還沒有帳號 ?'
@@ -86,6 +88,7 @@ export default {
       signup: '註冊失敗請聯繫廠商',
       signin: 'Email或密碼錯誤，請重新輸入',
       timeout: '登入逾時請重新登入',
+      apiFaild: '出現錯誤，請聯繫客服',
     },
     titleRequired: '至少需要填寫一個標題',
   }

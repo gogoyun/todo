@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
+import MailIcon from '@/components/icons/MailIcon.vue'
 import * as yup from 'yup'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 import { postForgot } from '@/services/axios'
 import { useRouter } from 'vue-router'
 const router = useRouter();
-import { useToastStore, useUserStore } from '@/stores';
+import { useToastStore } from '@/stores';
 const storeToast = useToastStore();
-const storeUser = useUserStore();
 const schema = yup.object({
 	email: yup.string().email(t('validate.email.error')).required(t('validate.email.required')),
 })
@@ -47,10 +47,11 @@ const formSubmit = handleSubmit(async(values) => {
 </script>
 
 <template>
-	<form @submit.prevent="formSubmit">
-		<div class="flex flex-col justify-center content-center">
-			<h1 class="text-xl text-center mt-12 mb-6">{{ t('forgot.title') }}</h1>
-			<img src="@/assets/images/login_pic.png" class="inline-block mx-auto" :alt="t('forgot.title')">
+	<form @submit.prevent="formSubmit" class="w-full">
+		<div class="flex flex-col justify-center content-center text-center">
+			<div class="inline-block mx-auto"><MailIcon /></div>
+			<h1 class="text-xl text-center mt-12 mb-2">{{ t('forgot.title') }}</h1>
+			<p class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">{{ t('forgot.subtitle') }}</p>
 			<fieldset class="fieldset flex flex-col mt-3 mb-5">
 				<div>
 					<input type="email" class="input w-full h-[47px] border-0 rounded-[11px]" :placeholder="t('forgot.emailPlaceholder')" v-model="email" name="email">

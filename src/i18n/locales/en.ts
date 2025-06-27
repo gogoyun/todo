@@ -26,6 +26,7 @@ export default {
   },
   forgot: {
     title: 'Reset your password',
+    subtitle: 'Enter your email and we will send you a link to reset your password.',
     emailPlaceholder: 'Enter your Email address',
     submitButton: 'Reset your password',
     signUp: 'Sign Up',
