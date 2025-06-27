@@ -93,7 +93,7 @@ const formSubmit = handleSubmit(async(values) => {
 			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('signin.submitButton') }}</button>
 			<div class="flex justify-center items-center text-[15px]">
 				<p class="opacity-62">{{ t('signin.haventAccount') }}</p>
-				<button class="btn btn-link opacity-100" @click="router.push('/signup')">{{ t('signin.signUp') }}</button>
+				<button type="button" class="btn btn-link opacity-100" @click="router.push('/signup')">{{ t('signin.signUp') }}</button>
 			</div>
 		</div>
 	</form>
