@@ -11,7 +11,7 @@
   <div class="w-full text-center">
     <div class="flex items-center justify-center text-base font-semibold" :style="{color: 'var(--color-green)'}"><CheckIcon /></div>
     <h1 class="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">{{ t('resetsuccess.title') }}</h1>
-    <p class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">{{ t('resetsuccess.subtitle') }}</p>
+    <p class="mt-6 font-medium text-pretty text-gray-500">{{ t('resetsuccess.subtitle') }}</p>
     <div class="mt-10 flex items-center justify-center">
       <button class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14" @click="router.replace('/signin')">{{ t('resetsuccess.submitButton') }}</button>
     </div>

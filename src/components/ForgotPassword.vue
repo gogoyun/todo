@@ -51,7 +51,7 @@ const formSubmit = handleSubmit(async(values) => {
 		<div class="flex flex-col justify-center content-center text-center">
 			<div class="inline-block mx-auto"><MailIcon /></div>
 			<h1 class="text-xl text-center mt-12 mb-2">{{ t('forgot.title') }}</h1>
-			<p class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">{{ t('forgot.subtitle') }}</p>
+			<p class="mt-6 font-medium text-pretty text-gray-500">{{ t('forgot.subtitle') }}</p>
 			<fieldset class="fieldset flex flex-col mt-3 mb-5">
 				<div>
 					<input type="email" class="input w-full h-[47px] border-0 rounded-[11px]" :placeholder="t('forgot.emailPlaceholder')" v-model="email" name="email">
