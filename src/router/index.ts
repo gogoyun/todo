@@ -31,6 +31,11 @@ const router = createRouter({
       component: () => import('../views/ForgotPasswordView.vue'),
     },
     {
+      path: '/reset-password',
+      name: 'resetpassword',
+      component: () => import('../views/ResetPasswordView.vue'),
+    },
+    {
       path: '/reset-success',
       name: 'resetsuccess',
       component: () => import('../views/ResetSuccessView.vue'),
@@ -59,8 +64,8 @@ function isUserEmpty() {
 
 router.beforeEach((to, from) => {
   const storeUser = useUserStore();
-  if ( isUserEmpty() && to.name !== 'signin' && to.name !== 'signup' && to.name !== 'forgotpassword' && to.name !== 'resetsuccess') {
-    storeUser.preLoginPath = to.fullPath;
+  if ( isUserEmpty() && to.name !== 'signin' && to.name !== 'signup' && to.name !== 'forgotpassword' && to.name !== 'resetpassword' && to.name !== 'resetsuccess' && to.name !== 'NotFound') {
+    if (to.name !== 'NotFound') storeUser.preLoginPath = to.fullPath;
     return { name: 'signin' }
   }
 })

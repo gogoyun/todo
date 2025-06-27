@@ -31,6 +31,12 @@ export default {
     signUp: 'Sign Up',
     haventAccount: 'Dont have an account ?'
   },
+  reset: {
+    title: 'Create new password',
+    passwordPlaceholder: 'Create a new Password',
+    confirmPasswordPlaceholder: 'Confirm your new Password',
+    submitButton: 'Reset password',
+  },
   resetsuccess: {
     title: 'Successful',
     subtitle: 'Password reset successful! You can now re-login with your new password.',
@@ -71,10 +77,10 @@ export default {
     },
     confirm: 'Are you sure you want to delete this item?',
     success: {
-      signup: 'Registration successful!',
+      signup: 'Registration successful',
       signin: 'Login successful',
       signout: 'Logged out successful',
-      sendEmail: 'send successful',
+      sendEmail: 'Send successful.Please check your mail box.',
       add: 'Added successful',
     },
     error: {

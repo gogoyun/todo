@@ -65,6 +65,8 @@ const postRegister = (data: JSON) => axiosInstance.post('/register', data);
 const postLogin = (data: JSON) => axiosInstance.post('/login', data);
 // 忘記密碼
 const postForgot = (data:JSON) => axiosInstance.post('/forgot-password', data);
+// 重設密碼
+const postReset = (data:JSON) => axiosInstanceAuth.post('/reset-password', data);
 
 // 列表
 const getTodos = () => axiosInstanceAuth.get('/todos');
@@ -78,4 +80,4 @@ const patchStatus = (id: number, data: JSON) => axiosInstanceAuth.patch('/todos/
 const delTodos = (id: number) => axiosInstanceAuth.delete('/todos/'+id);
 
 
-export { postRegister, postLogin, postForgot, getTodos, postTodos, putTodos, patchStatus, delTodos };
+export { postRegister, postLogin, postForgot, postReset, getTodos, postTodos, putTodos, patchStatus, delTodos };
