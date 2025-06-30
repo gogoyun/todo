@@ -1,33 +1,40 @@
-# todo
+# Todo List 應用程式
 
-This template should help get you started developing with Vue 3 in Vite.
+這是一個使用 Vue 3、Vite 和 TypeScript 建置的 Todo List 應用程式。
+Framework 使用 Tailwind 搭配 DaisyUI
+表單驗證使用vee-validate 搭配 yup
 
-## Recommended IDE Setup
+## 功能
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 新增、讀取、更新和刪除待辦事項。
+- 使用者註冊、登入、忘記密碼。
+- 使用 Pinia 和 pinia-plugin-persistedstate 進行資料持久化。
 
-## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Figma 參考
 
-## Customize configuration
+[https://www.figma.com/design/WATqxYKqo3uzgpOrwi7Bje/Todo-List-App--Community-?node-id=52-89&p=f&t=a49nmqFLnSlukaEX-0](https://www.figma.com/design/WATqxYKqo3uzgpOrwi7Bje/Todo-List-App--Community-?node-id=52-89&p=f&t=a49nmqFLnSlukaEX-0)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## 專案設定
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 編譯並在開發模式下熱重載
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 型別檢查、編譯並壓縮以用於生產環境
 
 ```sh
 npm run build
+```
+
+### 部署到 GitHub Pages
+
+```sh
+npm run deploy
 ```
