@@ -64,8 +64,8 @@ function isUserEmpty() {
 
 router.beforeEach((to, from) => {
   const storeUser = useUserStore();
-  if ( isUserEmpty() && to.name !== 'signin' && to.name !== 'signup' && to.name !== 'forgotpassword' && to.name !== 'resetpassword' && to.name !== 'resetsuccess' && to.name !== 'NotFound') {
-    if (to.name !== 'NotFound') storeUser.preLoginPath = to.fullPath;
+  if ( isUserEmpty() && to.name !== 'signin' && to.name !== 'signup' && to.name !== 'forgotpassword' && to.name !== 'resetpassword' && to.name !== 'resetsuccess' && to.name !== 'NotFound' && to.name !== 'welcome') {
+    if (to.name !== 'NotFound' && to.name !== 'welcome') storeUser.preLoginPath = to.fullPath;
     return { name: 'signin' }
   }
 })
