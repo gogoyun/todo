@@ -17,7 +17,7 @@ const schema = yup.object({
 	passwordConfirm: yup.string().oneOf([yup.ref('password')], t('validate.passwordConfirm.error')).required(t('validate.passwordConfirm.required'))
 })
 
-const { handleSubmit, errors, defineField } = useForm({
+const { handleSubmit, errors, defineField, isSubmitting } = useForm({
 	validationSchema: schema,
 	initialValues: {
 		password: '',
@@ -71,7 +71,9 @@ onMounted(()=> {
 			</fieldset>
 		</div>
 		<div class="bottom text-center">
-			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('reset.submitButton') }}</button>
+			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('reset.submitButton') }}
+				<span class="loading loading-spinner loading-xs" v-if="isSubmitting"></span>
+			</button>
 		</div>
 	</form>
 </template>

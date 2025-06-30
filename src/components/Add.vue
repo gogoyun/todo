@@ -26,7 +26,7 @@ const schema = yup.object({
 			}
 		),
 });
-const { handleSubmit, errors, resetForm } = useForm({
+const { handleSubmit, errors, resetForm, isSubmitting } = useForm({
 	validationSchema: schema,
 })
 const formSubmit = handleSubmit(async(values) => {
@@ -59,7 +59,9 @@ const formSubmit = handleSubmit(async(values) => {
 				</div>
 			</fieldset>
 			<div class="mt-2 mb-10">
-				<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px]">{{ t('add.submitButton') }}</button>
+				<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px]">{{ t('add.submitButton') }}
+					<span class="loading loading-spinner loading-xs" v-if="isSubmitting"></span>
+				</button>
 				<div class="error-text mt-1 px-1 h-[18px]">{{ errors.titles }}</div>
 			</div>
 		</div>

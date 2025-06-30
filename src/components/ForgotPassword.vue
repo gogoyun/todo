@@ -13,7 +13,7 @@ const schema = yup.object({
 	email: yup.string().email(t('validate.email.error')).required(t('validate.email.required')),
 })
 
-const { handleSubmit, errors, defineField } = useForm({
+const { handleSubmit, errors, defineField, isSubmitting } = useForm({
 	validationSchema: schema,
 	initialValues: {
 		email: '',
@@ -60,7 +60,9 @@ const formSubmit = handleSubmit(async(values) => {
 			</fieldset>
 		</div>
 		<div class="bottom text-center">
-			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('forgot.submitButton') }}</button>
+			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('forgot.submitButton') }}
+				<span class="loading loading-spinner loading-xs" v-if="isSubmitting"></span>
+			</button>
 			<div class="flex justify-center items-center text-[15px]">
 				<p class="opacity-62">{{ t('forgot.haventAccount') }}</p>
 				<button class="btn btn-link opacity-100" @click="router.push('/signup')">{{ t('forgot.signUp') }}</button>

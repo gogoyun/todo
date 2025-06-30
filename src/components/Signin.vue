@@ -14,7 +14,7 @@ const schema = yup.object({
 	password: yup.string().required(t('validate.password.required')).min(6, t('validate.password.min')).max(8, t('validate.password.max')),
 })
 
-const { handleSubmit, errors, defineField } = useForm({
+const { handleSubmit, errors, defineField, isSubmitting } = useForm({
 	validationSchema: schema,
 	initialValues: {
 		email: '',
@@ -90,7 +90,9 @@ const formSubmit = handleSubmit(async(values) => {
 			<button type="button" class="btn btn-link font-normal" @click="router.push('/forgotpassword')">{{ t('signin.forgotPassword') }}</button>
 		</div>
 		<div class="bottom text-center">
-			<button type="submit" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('signin.submitButton') }}</button>
+			<button type="submit" :disabled="isSubmitting" class="btn btn-md btn-wide bg-primary text-base-100 font-normal rounded-none h-[44px] mb-14">{{ t('signin.submitButton') }}
+				<span class="loading loading-spinner loading-xs" v-if="isSubmitting"></span>
+			</button>
 			<div class="flex justify-center items-center text-[15px]">
 				<p class="opacity-62">{{ t('signin.haventAccount') }}</p>
 				<button type="button" class="btn btn-link opacity-100" @click="router.push('/signup')">{{ t('signin.signUp') }}</button>
